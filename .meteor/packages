@@ -27,3 +27,4 @@ audit-argument-checks@1.0.7     # Try to detect inadequate input sanitization
 browser-policy@1.1.0            # Configure security policies enforced by the browser
 practicalmeteor:mocha@2.4.5_6   # Write package tests with mocha and run them in the browser or from the command line with spacejam.
 fourseven:scss@4.5.0            # Style with attitude. Sass and SCSS support for Meteor.js.
+mys:fonts@0.0.2                 # Load fonts from node modules and imports
