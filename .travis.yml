@@ -12,11 +12,12 @@ before_install:
 
 script:
   - meteor npm run lint
-  - meteor npm run spacejam-mocha -- --use-system-phantomjs
+  - meteor npm run spacejam-mocha
 
 deploy:
   provider: heroku
   api_key:
     secure: MbbLpTCEC38+frjWWwusEWiFn5wfu+PnkYAlJCWcFaD1Mii/+teLx3CMczHutwnvkt4wEUwE4eedA59x2Mn2rk65CDf0u+DwxQ+zVk+knUaAiBYZ2hAlKoL+S/tqSsJqiLrrAlKpK9mAr+3o7UAcEFSIsCImYperznAu+vWXKHszgmFyxGVWJ31S5A/9FXo9zI7vkN02tCxFymYaxwV19IWl2nSQZjjitVykws0t1SdJVXL4B5TwEcXSakpUHSa7rbFt8S9n0sFh8OC9WO7/AIovqcjcSZQDgtHkMjUrYW5Y8fQngej3nZvMFHOJeJKJ76on70/OFyX0gSQzT59fY2n1BmJWjMvR6yn8dN28Rz0aEMy+cea4HWCWINm4SznyawdAp1GS7TbB1pWCm61qpzgctJMRvEqICuelfAXTBUZi7ENvlk9Rcj0wW/y3CMCnrbQDJgFCUq7b70e08aHC29Gcu8JPj9esW56una2d77CgcDe/p41JAbT7h8OxeEAe1qTT74GIAweTrdZ2dFxo1S2Spc8oj2silUhgiEhQ58v9mHzpiVEVonrhiDG8mSTiT/xdml1sJ+hFop7OM8VFKypCp/0C9ipDKDCIAGltgfz+pb/oqHSYKegD7YpvfqWsE18aBPHeAQ+YIMG1zwsDlWHNq7NlR/R1No6quDiZX1Q=
   app: meteor-sweeper
+  buildpack: https://github.com/AdmitHub/meteor-buildpack-horse.git
   on: master
