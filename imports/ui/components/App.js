@@ -1,14 +1,16 @@
 import React from 'react';
 
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+import { LandingPage } from '/imports/ui/components/pages/LandingPage';
 import { NotFoundPage } from '/imports/ui/components/pages/NotFoundPage';
 
 export const App = () => (
   <BrowserRouter>
-    <div>
+    <Switch>
+      <Route exact path="/" component={LandingPage} />
       <Route component={NotFoundPage} />
-    </div>
+    </Switch>
   </BrowserRouter>
 );
 
