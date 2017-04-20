@@ -4,12 +4,12 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 
 export const AuthenticatedNavigation = ({ user, onLogout }) => {
-  const userName = user && user.profile ? user.profile.name : '';
+  const userName = user && user.profile && (user.profile.name || '');
   return (
     <div>
       <Nav>
-        <LinkContainer to="/documents">
-          <NavItem eventKey={2} href="/documents">Documents</NavItem>
+        <LinkContainer to="/dummy">
+          <NavItem eventKey={2} href="/dummy">Dummy</NavItem>
         </LinkContainer>
       </Nav>
       <Nav pullRight>

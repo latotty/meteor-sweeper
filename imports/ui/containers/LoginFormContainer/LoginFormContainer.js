@@ -1,47 +1,52 @@
 import { Meteor } from 'meteor/meteor';
 
 import PropTypes from 'prop-types';
-import { browserHistory } from 'react-router';
 import Alert from 'react-s-alert';
+import { withRouter } from 'react-router-dom';
+import { mayBeStubbed } from 'react-stubber';
 
 import { Loading } from '/imports/ui/components/molecules/Loading';
 import { LoginForm } from '/imports/ui/components/organisms/LoginForm';
 
 import { compose } from '../../trackerComposer';
 
-const login = (nextPathname, email, password) => {
+export const alertLoginSuccess = () => (
+  Alert.success('Logged in!', {
+    position: 'top-right',
+    effect: 'slide',
+  })
+);
+
+export const alertLoginError = errorMsg => (
+  Alert.warning(errorMsg, {
+    position: 'top-right',
+    effect: 'slide',
+  })
+);
+
+const login = ({ history, nextPathname }, email, password) => {
   Meteor.loginWithPassword(email, password, (error) => {
     if (error) {
-      Alert.warning(error.toString(), {
-        position: 'top-right',
-        effect: 'slide',
-      });
+      alertLoginError(error.toString());
     } else {
-      Alert.success('Logged in!', {
-        position: 'top-right',
-        effect: 'slide',
-      });
+      alertLoginSuccess();
 
       if (nextPathname) {
-        browserHistory.push(nextPathname);
+        history.push(nextPathname);
       } else {
-        browserHistory.push('/');
+        history.push('/');
       }
     }
   });
 };
 
-const composer = ({ match }, onData) => {
+const composer = ({ history, match }, onData) => {
   const nextPathname = match && match.state && match.state.nextPathname;
   onData(null, {
-    onLogin: login.bind(null, nextPathname),
+    onLogin: login.bind(null, { history, nextPathname }),
   });
 };
 
-export const LoginFormContainer = compose(composer, Loading)(LoginForm);
-
-LoginFormContainer.propTypes = {
-  match: PropTypes.shape({}).isRequired,
-};
+export const LoginFormContainer = mayBeStubbed(withRouter(compose(composer, Loading)(LoginForm)));
 
 export default LoginFormContainer;

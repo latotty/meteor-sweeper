@@ -1,10 +1,13 @@
 {
   "name": "meteor-sweeper",
   "private": true,
+  "version": "0.0.1",
   "scripts": {
     "start": "meteor run",
     "lint": "eslint .",
-    "spacejam-mocha": "spacejam-mocha"
+    "spacejam-mocha": "spacejam-mocha",
+    "storybook": "start-storybook -p 6006 --static-dir ./public",
+    "build-storybook": "build-storybook --static-dir ./public --output-dir ./.storybook-static/"
   },
   "dependencies": {
     "babel-runtime": "^6.20.0",
@@ -26,8 +29,12 @@
     "extends": "@meteorjs/eslint-config-meteor"
   },
   "devDependencies": {
+    "@kadira/storybook": "^2.35.3",
+    "@kadira/storybook-addon-knobs": "^1.7.1",
     "@meteorjs/eslint-config-meteor": "^1.0.5",
     "babel-eslint": "^7.2.2",
+    "babel-project-relative-import": "^2.0.1",
+    "enzyme": "^2.8.2",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-import-resolver-meteor": "^0.4.0",
@@ -35,6 +42,11 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-meteor": "^4.0.1",
     "eslint-plugin-react": "^6.10.3",
+    "file-loader": "^0.11.1",
+    "mocha": "^3.2.0",
+    "node-sass": "^4.5.2",
+    "react-stubber": "^1.0.0",
+    "sass-loader": "^6.0.3",
     "spacejam": "^1.6.1"
   }
 }
