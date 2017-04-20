@@ -16,6 +16,10 @@ addons:
 env:
   - CXX=g++-4.8
 
+cache:
+  directories:
+    - node_modules
+
 before_install:
   - curl https://install.meteor.com | /bin/sh
   - export PATH="$HOME/.meteor:$PATH"
