@@ -1,6 +1,5 @@
 import { Meteor } from 'meteor/meteor';
 
-import PropTypes from 'prop-types';
 import Alert from 'react-s-alert';
 import { withRouter } from 'react-router-dom';
 import { mayBeStubbed } from 'react-stubber';
