@@ -1,9 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 
-import { LoginPage } from '.';
+import { SignupPage } from '.';
 
-storiesOf('LoginPage', module)
+storiesOf('SignupPage', module)
   .add('default', () => (
-    <LoginPage />
+    <SignupPage />
   ));

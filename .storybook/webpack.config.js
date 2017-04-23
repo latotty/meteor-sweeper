@@ -19,6 +19,7 @@ module.exports = function(storybookBaseConfig, configType) {
   });
 
   storybookBaseConfig.resolve.alias['meteor/meteor'] = path.resolve(__dirname, './mocks/meteor');
+  storybookBaseConfig.resolve.alias['meteor/accounts-base'] = path.resolve(__dirname, './mocks/meteor-accounts-base');
 
   return storybookBaseConfig;
 };
